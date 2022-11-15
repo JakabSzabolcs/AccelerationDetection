@@ -54,6 +54,8 @@ public class AccelerationSensor implements SensorEventListener {
                 ws.start();
                 tv.setText("WOAH, youre strong.");
                 Thread.sleep(2000);
+                tv.setText("You win.");
+                Thread.sleep(2000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

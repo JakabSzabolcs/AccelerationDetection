@@ -24,9 +24,10 @@ public class MainActivity extends AppCompatActivity
     private ProgressBar accelerationPb;
     private SensorManager sensorManager;
     private TextView sensorTextView, accelerationTv;
-    private Sensor mLight;
+    private Sensor Acceleration;
     private AccelerationSensor sel = new AccelerationSensor();
     private Button checkButton;
+    private MediaPlayer WinSound = new MediaPlayer();
 
 
     @Override
@@ -35,13 +36,13 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         accelerationPb = findViewById(R.id.accelerationPb);
         accelerationTv = findViewById(R.id.accelerationTv);
-        final MediaPlayer WinSound = MediaPlayer.create(this, R.raw.winSound);
+        WinSound = MediaPlayer.create(this, R.raw.winSound);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         //List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
-        mLight = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Acceleration = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        sensorManager.registerListener(sel, mLight, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(sel, Acceleration, SensorManager.SENSOR_DELAY_FASTEST);
 
         sel.setPb(accelerationPb);
         sel.setTv(accelerationTv);
