@@ -46,23 +46,24 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="291dp"
-        android:layout_height="522dp"
+        android:layout_width="227dp"
+        android:layout_height="347dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accelerationTv"
+        app:layout_constraintVertical_bias="0.911"
         app:srcCompat="@drawable/hammerpic"
-        tools:ignore="ImageContrastCheck,ImageContrastCheck"
-        android:contentDescription="TODO" />
+        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/testTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/asd"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

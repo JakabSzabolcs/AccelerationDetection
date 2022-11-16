@@ -42,7 +42,8 @@ public class AccelerationSensor implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         try {
-            maxAcceleration = 0;
+
+
             //tv.setText("" + sensorEvent.values[0]);
             //System.out.println(sensorEvent.values[0]);
             //elágazások:
@@ -51,17 +52,18 @@ public class AccelerationSensor implements SensorEventListener {
             if(maxAcceleration<AccelerationValues)
             {
                 maxAcceleration = AccelerationValues;
+                tTv.setText("");
             }
-            tv.setText((int)(maxAcceleration/78*100)+"%");
+            tv.setText((int)(AccelerationValues/78*100)+"%");
+
 
             if(maxAcceleration >= 78)
             {
-                tTv.setText("WOAH, you're strong.");
+                tTv.setText("You win.");
                 ws.start();
                 Thread.sleep(1000);
-
-
-                ws.stop();
+                maxAcceleration = 0;
+//                tTv.setText(" ");
 
             }
         } catch (InterruptedException e) {
