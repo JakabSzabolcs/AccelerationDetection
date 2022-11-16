@@ -23,10 +23,9 @@ public class MainActivity extends AppCompatActivity
 {
     private ProgressBar accelerationPb;
     private SensorManager sensorManager;
-    private TextView sensorTextView, accelerationTv;
+    private TextView textTextView, accelerationTv;
     private Sensor Acceleration;
     private AccelerationSensor sel = new AccelerationSensor();
-    private Button checkButton;
     private MediaPlayer WinSound = new MediaPlayer();
 
 
@@ -36,7 +35,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         accelerationPb = findViewById(R.id.accelerationPb);
         accelerationTv = findViewById(R.id.accelerationTv);
-        WinSound = MediaPlayer.create(this, R.raw.winSound);
+        textTextView = findViewById(R.id.testTextView);
+        WinSound = MediaPlayer.create(this, R.raw.winsound);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         //List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         sel.setPb(accelerationPb);
         sel.setTv(accelerationTv);
         sel.setMedia(WinSound);
+        sel.setTTv(textTextView);
         //sensorTextView.setMovementMethod((new ScrollingMovementMethod()));
         //sensorTextView.setText(sensors.toString());
 

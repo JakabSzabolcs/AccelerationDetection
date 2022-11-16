@@ -1,5 +1,6 @@
 package hu.unideb.inf.mobilsz14.noisedetection;
 
+import android.annotation.SuppressLint;
 import android.graphics.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -18,7 +19,7 @@ public class AccelerationSensor implements SensorEventListener {
 
 
     private ProgressBar pb;
-    private TextView tv;
+    private TextView tv, tTv;
     private MediaPlayer ws;
 
     public void setPb(ProgressBar pb) {
@@ -29,16 +30,19 @@ public class AccelerationSensor implements SensorEventListener {
         this.tv = tv;
     }
 
+    public void setTTv(TextView tTv){this.tTv = tTv;}
+
     public void setMedia(MediaPlayer winSound){ this.ws = winSound;}
 
     public float maxAcceleration = 0;
 
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         try {
+            maxAcceleration = 0;
             //tv.setText("" + sensorEvent.values[0]);
             //System.out.println(sensorEvent.values[0]);
             //elágazások:
@@ -49,13 +53,16 @@ public class AccelerationSensor implements SensorEventListener {
                 maxAcceleration = AccelerationValues;
             }
             tv.setText((int)(maxAcceleration/78*100)+"%");
-            if(AccelerationValues > 78)
+
+            if(maxAcceleration >= 78)
             {
+                tTv.setText("WOAH, you're strong.");
                 ws.start();
-                tv.setText("WOAH, youre strong.");
-                Thread.sleep(2000);
-                tv.setText("You win.");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+
+
+                ws.stop();
+
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
