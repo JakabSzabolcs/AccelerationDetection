@@ -2,4 +2,6 @@
     <string name="app_name">NoiseDetection</string>
     <string name="acceleration">Acceleration</string>
     <string name="run_on_background">Run On Background:</string>
+    <string name="asd">asd</string>
+    <string name="accelerationTv" />
 </resources>
